@@ -1,0 +1,39 @@
+--- a/sarathi/core/scheduler/slai_scheduler.py
++++ b/sarathi/core/scheduler/slai_scheduler.py
+@@ -1,4 +1,5 @@
+ import time
++import os
+ from typing import List, Tuple
+ import heapq 
+ import numpy as np
+@@ -48,6 +49,11 @@
+         self._mean_batch_dur   = 0.0   
+         self._num_batches_seen = 0
+         self._max_batch_dur = 0.0 
++        # Weight on the previous batch-duration estimate.
++        self._ema_rho = float(os.environ['EMA_SLAI_RHO'])
++        if not (0.0 < self._ema_rho < 1.0):
++            raise ValueError('EMA_SLAI_RHO must be between 0 and 1')
++        self._ema_batch_dur = 0.0
+     def get_queue_sizes(self) -> tuple[int, int]:
+         """Return (#prefill_waiting, #decode_waiting)."""
+         return (self.prefill_waiting + len(self.paused_prefills)), (len(self.decode_queue))
+@@ -82,6 +88,9 @@
+         dur = batch_end_time - batch_start_time
+         self._num_batches_seen += 1
+         self._mean_batch_dur += (dur - self._mean_batch_dur) / self._num_batches_seen
++        self._ema_batch_dur = (dur if self._num_batches_seen == 1 else
++                               self._ema_rho * self._ema_batch_dur +
++                               (1.0 - self._ema_rho) * dur)
+         self._max_batch_dur = max(self._max_batch_dur, dur)
+         
+     def _tbt_for(self, seq: Sequence) -> float:
+@@ -122,7 +131,7 @@
+                     else:
+                         self.offset = self.below_memory_limit_offset
+                 
+-                seq.last_schedulable_time = self.last_batch_end_time + self._tbt_for(seq) - self.offset * self._mean_batch_dur
++                seq.last_schedulable_time = self.last_batch_end_time + self._tbt_for(seq) - self.offset * self._ema_batch_dur
+                 heapq.heappush(self.decode_queue, (seq.last_schedulable_time, seq.arrival_time, seq)) 
+ 
+     def on_step_completed(self) -> None:           # called from BaseLLMEngine

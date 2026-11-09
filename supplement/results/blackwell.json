@@ -1,0 +1,159 @@
+{
+  "gpu": "RTX PRO 6000 Blackwell Max-Q",
+  "alpha": 0.8,
+  "unit": "ms",
+  "baseline": "Original dynamic-offset SLAI on Blackwell",
+  "ttft_proxy": "First exported CDF point at or above 0.5 for completed requests",
+  "rows": [
+    {
+      "requests_per_second": 0.4,
+      "paying_p99_tbt": {
+        "slai": 90.44608958190409,
+        "ema_slai": 50.9453651354185
+      },
+      "free_p99_tbt": {
+        "slai": 18.892281567469155,
+        "ema_slai": 20.020434467290084
+      },
+      "median_ttft_proxy": {
+        "slai": 172.50692202651408,
+        "ema_slai": 174.3819155381061
+      }
+    },
+    {
+      "requests_per_second": 0.8,
+      "paying_p99_tbt": {
+        "slai": 97.00417330247595,
+        "ema_slai": 55.52058291398553
+      },
+      "free_p99_tbt": {
+        "slai": 122.33388619092723,
+        "ema_slai": 140.71747056462465
+      },
+      "median_ttft_proxy": {
+        "slai": 198.72357790882234,
+        "ema_slai": 204.30800825124606
+      }
+    },
+    {
+      "requests_per_second": 1.0,
+      "paying_p99_tbt": {
+        "slai": 99.360436303594,
+        "ema_slai": 57.097128398211474
+      },
+      "free_p99_tbt": {
+        "slai": 242.92537740600662,
+        "ema_slai": 264.2126669041456
+      },
+      "median_ttft_proxy": {
+        "slai": 216.54765694984235,
+        "ema_slai": 219.00874259881675
+      }
+    },
+    {
+      "requests_per_second": 1.2,
+      "paying_p99_tbt": {
+        "slai": 54.203951262721354,
+        "ema_slai": 61.23713876207167
+      },
+      "free_p99_tbt": {
+        "slai": 354.5163383395259,
+        "ema_slai": 336.5525879195709
+      },
+      "median_ttft_proxy": {
+        "slai": 232.58928008726798,
+        "ema_slai": 231.36804212117568
+      }
+    },
+    {
+      "requests_per_second": 1.4,
+      "paying_p99_tbt": {
+        "slai": 55.96652913244195,
+        "ema_slai": 59.42730720466924
+      },
+      "free_p99_tbt": {
+        "slai": 438.2346528327798,
+        "ema_slai": 359.51447405636566
+      },
+      "median_ttft_proxy": {
+        "slai": 242.0892497175373,
+        "ema_slai": 242.7481110789813
+      }
+    },
+    {
+      "requests_per_second": 1.6,
+      "paying_p99_tbt": {
+        "slai": 59.190072682130186,
+        "ema_slai": 62.85018362356635
+      },
+      "free_p99_tbt": {
+        "slai": 438.2346528327798,
+        "ema_slai": 404.5415607952298
+      },
+      "median_ttft_proxy": {
+        "slai": 252.0619779243134,
+        "ema_slai": 260.5468701804057
+      }
+    },
+    {
+      "requests_per_second": 1.8,
+      "paying_p99_tbt": {
+        "slai": 66.60328335670262,
+        "ema_slai": 68.08479293600143
+      },
+      "free_p99_tbt": {
+        "slai": 432.1421129526276,
+        "ema_slai": 405.35145380983494
+      },
+      "median_ttft_proxy": {
+        "slai": 288.28019776847214,
+        "ema_slai": 292.2437525703572
+      }
+    },
+    {
+      "requests_per_second": 2.0,
+      "paying_p99_tbt": {
+        "slai": 73.46094530820547,
+        "ema_slai": 76.91907721635559
+      },
+      "free_p99_tbt": {
+        "slai": 413.5400991155229,
+        "ema_slai": 393.37150393343137
+      },
+      "median_ttft_proxy": {
+        "slai": 314.54399041831493,
+        "ema_slai": 334.88802920328453
+      }
+    },
+    {
+      "requests_per_second": 2.2,
+      "paying_p99_tbt": {
+        "slai": 86.55274209392385,
+        "ema_slai": 86.55274209392385
+      },
+      "free_p99_tbt": {
+        "slai": 382.50987068588523,
+        "ema_slai": 363.1276558002352
+      },
+      "median_ttft_proxy": {
+        "slai": 468.95321723422967,
+        "ema_slai": 496.50353752076626
+      }
+    },
+    {
+      "requests_per_second": 2.4,
+      "paying_p99_tbt": {
+        "slai": 86.37980954228763,
+        "ema_slai": 86.55274209392385
+      },
+      "free_p99_tbt": {
+        "slai": 360.95541238831663,
+        "ema_slai": 351.6915210261385
+      },
+      "median_ttft_proxy": {
+        "slai": 733.5438444279134,
+        "ema_slai": 721.4753617881797
+      }
+    }
+  ]
+}

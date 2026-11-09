@@ -1,0 +1,3 @@
+* text=auto eol=lf
+SLAI-original/** -text
+SLAI-EMA/** -text
